@@ -41,7 +41,7 @@ resource "google_kms_crypto_key" "bt_key691" {
 # Deployment to PROD need to have HA support deploying cluster in different zones of regions.
 
 resource "google_bigtable_instance" "bt_prod_instance690" {
-  name                = "wf-us-prod-bt-00222-instance-100"
+  name                = "wf-us-prod-bt-00222-100"
   deletion_protection = false
 
   cluster {
@@ -74,7 +74,7 @@ resource "google_bigtable_instance" "bt_prod_instance690" {
 }
 
 resource "google_bigtable_table" "table" {
-  name          = "wf-us-prod-bt-00222-table-100"
+  name          = "wf-us-prod-bt-00222-100"
   instance_name = google_bigtable_instance.bt_prod_instance690.name
   split_keys    = ["a", "b", "c"]
 
