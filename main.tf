@@ -12,7 +12,7 @@ resource "google_project_service" "bigtable" {
 }
 
 resource "google_kms_key_ring" "example-keyring690" {
-  name     = "keyring-example690"
+  name     = "wf-us-prod-kms-00222-99"
   location = "us-central1"
   depends_on = [
     google_project_service.bigtable
@@ -20,12 +20,12 @@ resource "google_kms_key_ring" "example-keyring690" {
 }
 
 resource "google_kms_crypto_key" "bt_key690" {
-  name     = "key690"
+  name     = "wf-us-prod-kms-00222-101"
   key_ring = google_kms_key_ring.example-keyring690.id
 }
 
 resource "google_kms_key_ring" "example-keyring691" {
-  name     = "keyring-example691"
+  name     = "wf-us-prod-kms-00222-100"
   location = "us-east1"
   depends_on = [
     google_project_service.bigtable
@@ -41,7 +41,7 @@ resource "google_kms_crypto_key" "bt_key691" {
 # Deployment to PROD need to have HA support deploying cluster in different zones of regions.
 
 resource "google_bigtable_instance" "bt_prod_instance690" {
-  name                = "bt-wf-instance690"
+  name                = "wf-us-prod-bt-00222-instance-100"
   deletion_protection = false
 
   cluster {
@@ -74,7 +74,7 @@ resource "google_bigtable_instance" "bt_prod_instance690" {
 }
 
 resource "google_bigtable_table" "table" {
-  name          = "tf-table"
+  name          = "wf-us-prod-bt-00222-table-100"
   instance_name = google_bigtable_instance.bt_prod_instance690.name
   split_keys    = ["a", "b", "c"]
 
