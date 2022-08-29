@@ -33,7 +33,7 @@ resource "google_kms_key_ring" "example-keyring691" {
 }
 
 resource "google_kms_crypto_key" "bt_key691" {
-  name     = "key691"
+  name     = "wf-us-prod-kms-00222-103"
   key_ring = google_kms_key_ring.example-keyring691.id
 }
 
