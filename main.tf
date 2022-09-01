@@ -47,6 +47,7 @@ resource "google_bigtable_instance" "bt_prod_instance690" {
   cluster {
     cluster_id   = "bt-instance-cluster-central"
     storage_type = "HDD"
+    region = "us-central1"
     zone         = "us-central1-b"
     #kms_key_name = google_kms_crypto_key.bt_key690.id
     autoscaling_config {
